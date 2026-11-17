@@ -1,0 +1,3 @@
+- const categories = ['all', 'branding', 'identity', 'print', 'web', 'motion']
+- const cats = categories.slice(1)
+- const works = Array.from({ length: 9 }, (_, i) => ({ title: `Project ${i + 1}`, category: cats[i % cats.length], image: `work-0${i + 1}`, alt: `Робота Keepsake №${i + 1}` }))

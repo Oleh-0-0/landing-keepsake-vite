@@ -1,0 +1,29 @@
+mixin work-card(work)
+  a.work-card(href='#works', aria-label=`${work.title}, ${work.category}`)
+    +picture(work.image, work.alt, { cls: 'work-card__img', sizes: '(min-width: 1280px) 357px, (min-width: 768px) 50vw, 100vw' })
+    span.work-card__overlay
+      span.work-card__plus
+        +icon('plus')
+      span.work-card__title #{work.title}
+      span.work-card__category #{work.category}
+
+mixin section-title(text, id)
+  h2.section-title(id=id)&attributes(attributes)
+    | #{text}
+    block
+
+mixin service(item)
+  article.service
+    span.service__icon
+      +icon(item.icon)
+    h3.service__title #{item.title}
+    p.service__text #{item.text}
+
+mixin journal-entry(entry)
+  article.entry
+    +picture(entry.image, entry.alt, { cls: 'entry__img', sizes: '150px', w: 150, h: 150 })
+    div.entry__body
+      p.entry__meta #{entry.date} / #{entry.category}
+      h3.entry__title #{entry.title}
+      p.entry__text #{entry.text}
+      a.entry__link(href='#journal') Read more

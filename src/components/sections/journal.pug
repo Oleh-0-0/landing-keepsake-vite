@@ -1,0 +1,6 @@
+section.section#journal(aria-labelledby='journal-title')
+  .container
+    +section-title('From the journal', 'journal-title')
+    .journal
+      each entry in journal
+        +journal-entry(entry)

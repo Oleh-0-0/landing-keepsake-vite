@@ -1,21 +1,25 @@
+include ../mixins/btn
+include ../mixins/icon
+include ../mixins/picture
+include ../mixins/cards
+include ../data/site
+include ../data/works
+include ../data/content
+
 doctype html
-html(lang="en")
-    head
-        block meta
-            meta(charset="utf-8")
-            meta(name="viewport" content="width=device-width, initial-scale=1")
-        block title
-            title Vite Pug Template
-        block fonts
-        block main-scripts
-        block styles
-            link(rel="stylesheet" href="/src/styles/main.scss")
-    body
-        block data
-        block header
-            header.page-header header
-        block content
-            main.page-main content
-        block footer
-            footer.page-footer footer
-        block add-scripts
+html(lang='uk')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    block meta
+    title
+      block title
+        | Keepsake
+    link(rel='preconnect', href='https://fonts.googleapis.com')
+    link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
+    block styles
+      link(rel='stylesheet', href='https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Open+Sans:wght@300;400;700&family=Oswald:wght@300;400;700&display=swap')
+      link(rel='stylesheet', href='/src/styles/main.scss')
+  body#top
+    block content
+    block scripts

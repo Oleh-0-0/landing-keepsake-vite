@@ -1,20 +1,26 @@
-footer.footer#contact
+footer#contact.footer
   .container
     .footer__top
       each col in footerColumns
         nav.footer__col(aria-label=col.title)
-          h2.footer__title #{col.title}
+          h2.footer__title #{ col.title }
           ul
             each link in col.links
               li
-                a.footer__link(href='#') #{link}
+                a.footer__link(href='#') #{ link }
       form.subscribe(novalidate)
         label.subscribe__label(for='email') Subscribe
-        input#email.subscribe__input(type='email', required, placeholder='Your email', aria-describedby='email-error')
+        input#email.subscribe__input(
+          type='email',
+          required,
+          placeholder='Your email',
+          aria-describedby='email-error'
+        )
         p#email-error.subscribe__error Please enter a valid email
         label.subscribe__consent
           input(type='checkbox', required)
-          |  I agree to the privacy policy
+          |
+          | I agree to the privacy policy
         +btn('Subscribe', false)
     .footer__bottom
       p.footer__copy © 2026 Keepsake

@@ -11,13 +11,20 @@ $colors: (
   'overlay': rgb(30 32 36 / 82%),
   'white': #fff,
 );
-
 $font-heading: 'Oswald', sans-serif;
 $font-body: 'Open Sans', sans-serif;
 $font-script: 'Dancing Script', cursive;
 
 // Бокові поля та вертикальні відступи: mobile / tablet / desktop
-$gutters: (base: 20px, md: 40px, lg: 90px);
-$section-gaps: (base: 56px, md: 72px, lg: 90px);
+$gutters: (
+  base: 20px,
+  md: 40px,
+  lg: 90px,
+);
+$section-gaps: (
+  base: 56px,
+  md: 72px,
+  lg: 90px,
+);
 $container-max: 1100px;
 $filter-categories: ('branding', 'identity', 'print', 'web', 'motion');

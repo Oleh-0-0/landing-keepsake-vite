@@ -3,11 +3,16 @@ section.section(aria-labelledby='clients-title')
     +section-title('Clients & kind words', 'clients-title')
     ul.clients
       each c in clients
-        li.clients__item #{c}
+        li.clients__item #{ c }
     figure.quote
       blockquote.quote__text Keepsake turned our ideas into a brand people remember.
       figcaption.quote__author
-        +picture('avatar-01', '', { cls: 'quote__avatar', w: 56, h: 56, sizes: '56px' })
+        +picture('avatar-01', '', {
+          cls: 'quote__avatar',
+          w: 56,
+          h: 56,
+          sizes: '56px',
+        })
         | Anna K., CEO
       .quote__dots
         span.quote__dot.quote__dot--active

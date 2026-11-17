@@ -80,7 +80,9 @@
 
   // :checked ~ фільтр: ховаємо картки інших категорій
   @each $cat in $filter-categories {
-    .filter__input[value='#{$cat}']:checked ~ & &__item:not([data-category='#{$cat}']) {
+    .filter__input[value='#{$cat}']:checked
+      ~ &
+      &__item:not([data-category='#{$cat}']) {
       display: none;
     }
   }

@@ -1,11 +1,17 @@
-section.section#works(aria-labelledby='works-title')
+section#works.section(aria-labelledby='works-title')
   .container
     +section-title('Our awesome works', 'works-title')
     //- фільтр через :checked ~ ; радіокнопки й чипси генеруються з масиву
     .filter
       each cat, i in categories
-        input.filter__input(type='radio', name='filter', id=`f-${cat}`, value=cat, checked=i === 0)
-        label.chip(for=`f-${cat}`) #{cat}
+        input.filter__input(
+          type='radio',
+          name='filter',
+          id=`f-${cat}`,
+          value=cat,
+          checked=i === 0
+        )
+        label.chip(for=`f-${cat}`) #{ cat }
       ul.works-grid
         each work in works
           li.works-grid__item(data-category=work.category)

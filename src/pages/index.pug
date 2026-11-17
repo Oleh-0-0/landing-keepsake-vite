@@ -1,13 +1,16 @@
 extends ../layouts/main
 
-append meta
-  meta(name='description', content='Keepsake — дизайн-агенція: брендинг, друк, веб.')
+block append meta
+  meta(
+    name='description',
+    content='Keepsake — дизайн-агенція: брендинг, друк, веб.'
+  )
   meta(property='og:title', content='Keepsake')
 
 block title
   | Keepsake — Design Agency
 
-prepend scripts
+block prepend scripts
   //- сюди можна додати preload/скрипти, не замінюючи вміст макета
 
 block content

@@ -1,13 +1,13 @@
 //- +btn('Label', '#href', 'primary|secondary|block')(aria-label="…")  ; block = вкладений вміст (іконка)
 mixin btn(label, href, variant = 'primary')
-  - let mod
+  - let mod;
   case variant
     when 'secondary'
-      - mod = 'btn--secondary'
+      - mod = 'btn--secondary';
     when 'block'
-      - mod = 'btn--primary btn--block'
+      - mod = 'btn--primary btn--block';
     default
-      - mod = 'btn--primary'
+      - mod = 'btn--primary';
   a.btn(class=mod, href=href || '#')&attributes(attributes)
     block
-    | #{label}
+    | #{ label }

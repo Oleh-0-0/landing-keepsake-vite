@@ -17,7 +17,14 @@ if (files.length === 0) {
   ];
   await Promise.all(
     names.map((n, i) =>
-      sharp({ create: { width: 800, height: 632, channels: 3, background: { h: (i * 37) % 360, s: 55, l: 60 } } })
+      sharp({
+        create: {
+          width: 800,
+          height: 632,
+          channels: 3,
+          background: { h: (i * 37) % 360, s: 55, l: 60 },
+        },
+      })
         .jpeg()
         .toFile(`${SRC}/${n}.jpg`),
     ),
@@ -32,7 +39,9 @@ for (const file of files) {
     await Promise.all([
       img().avif({ quality: 50 }).toFile(`${OUT}/${name}-${w}.avif`),
       img().webp({ quality: 75 }).toFile(`${OUT}/${name}-${w}.webp`),
-      img().jpeg({ quality: 80, mozjpeg: true }).toFile(`${OUT}/${name}-${w}.jpg`),
+      img()
+        .jpeg({ quality: 80, mozjpeg: true })
+        .toFile(`${OUT}/${name}-${w}.jpg`),
     ]);
   }
   console.log('✔', name);

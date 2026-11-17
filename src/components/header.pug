@@ -11,6 +11,10 @@ header.header
       ul.nav__list
         each item in nav
           li.nav__item
-            a.nav__link(href=item.href, class={ 'nav__link--active': item.active }, aria-current=item.active ? 'page' : false) #{item.label}
+            a.nav__link(
+              href=item.href,
+              class={ 'nav__link--active': item.active },
+              aria-current=item.active ? 'page' : false
+            ) #{ item.label }
       a.header__fav(href='#', aria-label='Favourites')
         +icon('heart')

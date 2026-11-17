@@ -1,0 +1,25 @@
+@use '../abstracts' as *;
+
+.cta {
+  padding-block: var(--section-gap);
+  text-align: center;
+  background: var(--color-bg-light);
+
+  &__title {
+    @include heading-font(rem(22), 3px, 300);
+
+    margin-bottom: 24px;
+  }
+
+  @include mq(md) {
+    &__title {
+      font-size: rem(24);
+    }
+  }
+
+  @include mq(lg) {
+    &__title {
+      font-size: rem(28);
+    }
+  }
+}

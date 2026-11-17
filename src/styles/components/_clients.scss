@@ -1,0 +1,87 @@
+@use '../abstracts' as *;
+
+.clients {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+
+  &__item {
+    @include heading-font(rem(16), 2px);
+
+    padding: 16px;
+    color: var(--color-muted);
+    text-align: center;
+    border: 1px solid var(--color-border);
+  }
+
+  @include mq(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include mq(lg) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.quote {
+  padding: 32px 24px;
+  text-align: center;
+  background: var(--color-bg-light);
+
+  &::before {
+    font: 700 rem(48) var(--font-heading);
+    color: var(--color-accent);
+    content: '\201C';
+  }
+
+  &__text {
+    font-size: rem(16);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  &__author {
+    @include flex-center;
+
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  &__avatar {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__dots {
+    @include flex-center;
+
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-border);
+    border-radius: 50%;
+
+    &--active {
+      background: var(--color-accent);
+    }
+  }
+
+  @include mq(md) {
+    &__text {
+      font-size: rem(19);
+    }
+  }
+
+  @include mq(lg) {
+    &__text {
+      font-size: rem(22);
+    }
+  }
+}

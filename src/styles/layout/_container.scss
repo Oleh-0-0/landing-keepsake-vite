@@ -1,0 +1,12 @@
+@use '../abstracts' as *;
+
+.container {
+  width: 100%;
+  max-width: calc(#{$container-max} + 2 * var(--gutter));
+  padding-inline: var(--gutter);
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--section-gap);
+}

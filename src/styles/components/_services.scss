@@ -1,0 +1,39 @@
+@use '../abstracts' as *;
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 16px;
+
+  @include mq(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.service {
+  text-align: center;
+
+  &__icon {
+    @include flex-center;
+
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 16px;
+    color: var(--color-accent);
+    background: var(--color-bg-light);
+    border-radius: 50%;
+  }
+
+  &__title {
+    @include heading-font(rem(15), 1px);
+
+    margin-bottom: 8px;
+  }
+
+  @include mq(md) {
+    &__icon {
+      width: 96px;
+      height: 96px;
+    }
+  }
+}

@@ -1,0 +1,174 @@
+@use '../abstracts' as *;
+
+.filter {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  padding-bottom: 8px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+
+  &__input {
+    @include visually-hidden;
+  }
+
+  @include mq(md) {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+}
+
+.chip {
+  @include heading-font(rem(12), 1px);
+
+  flex: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border: 1px solid var(--color-border);
+
+  &:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  .filter__input:checked + & {
+    color: var(--color-white);
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  .filter__input:focus-visible + & {
+    @include focus-ring;
+  }
+}
+
+.works-grid {
+  display: grid;
+  flex: none;
+  gap: 12px;
+  width: 100%;
+
+  &__item:nth-child(n + 6) {
+    display: none;
+  }
+
+  @include mq(md) {
+    grid-template-columns: repeat(2, 1fr);
+
+    &__item:nth-child(n + 6) {
+      display: block;
+    }
+
+    &__item:nth-child(n + 9) {
+      display: none;
+    }
+  }
+
+  @include mq(lg) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+
+    &__item:nth-child(n + 9) {
+      display: block;
+    }
+  }
+
+  // Знімаємо обмеження :nth-child при виборі конкретної категорії на мобільному/планшеті
+  .filter__input:not([value='all']):checked ~ & &__item {
+    display: block;
+  }
+
+  // :checked ~ фільтр: ховаємо картки інших категорій
+  @each $cat in $filter-categories {
+    .filter__input[value='#{$cat}']:checked ~ & &__item:not([data-category='#{$cat}']) {
+      display: none;
+    }
+  }
+}
+
+.filter .works-grid {
+  flex-basis: 100%;
+}
+
+.works__more {
+  margin-top: 32px;
+
+  .btn {
+    width: 100%;
+  }
+
+  @include mq(md) {
+    display: flex;
+    justify-content: center;
+
+    .btn {
+      width: auto;
+    }
+  }
+}
+
+.work-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1 / 0.72;
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__overlay {
+    @include flex-center(column);
+
+    position: absolute;
+    inset: 0;
+    gap: 6px;
+    color: var(--color-white);
+    text-align: center;
+    background: var(--color-overlay);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  &:hover &__overlay,
+  &:focus-visible &__overlay {
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  &__plus {
+    @include flex-center;
+
+    width: 44px;
+    height: 44px;
+    background: var(--color-teal);
+    border-radius: 50%;
+  }
+
+  &__title {
+    @include heading-font(rem(16), 1.5px);
+
+    &::after {
+      display: block;
+      width: 24px;
+      height: 2px;
+      margin: 8px auto 0;
+      content: '';
+      background: var(--color-accent);
+    }
+  }
+
+  &__category {
+    font-size: rem(12);
+    color: var(--color-teal);
+  }
+
+  @include mq(md) {
+    aspect-ratio: 1 / 0.79;
+  }
+}

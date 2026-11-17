@@ -1,0 +1,28 @@
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@mixin focus-ring($color: var(--color-teal), $offset: 2px) {
+  outline: 2px solid $color;
+  outline-offset: $offset;
+}
+
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin heading-font($size, $spacing: 1px, $weight: 400) {
+  font-family: var(--font-heading);
+  font-size: $size;
+  font-weight: $weight;
+  letter-spacing: $spacing;
+  text-transform: uppercase;
+}

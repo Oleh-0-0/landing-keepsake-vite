@@ -1,0 +1,46 @@
+@use '../abstracts' as *;
+
+.journal {
+  display: grid;
+  gap: 32px;
+
+  @include mq(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.entry {
+  display: flex;
+  gap: 16px;
+
+  &__img {
+    flex: none;
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+  }
+
+  &__meta {
+    font-size: rem(12);
+    color: var(--color-muted);
+  }
+
+  &__title {
+    @include heading-font(rem(16), 1px);
+  }
+
+  &__link {
+    color: var(--color-accent);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @include mq(md) {
+    &__img {
+      width: 150px;
+      height: 150px;
+    }
+  }
+}

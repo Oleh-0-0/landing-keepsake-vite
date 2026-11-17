@@ -1,0 +1,68 @@
+@use '../abstracts' as *;
+
+.nav {
+  position: absolute;
+  top: 100%;
+  inset-inline: 0;
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px var(--gutter) 24px;
+  background: var(--color-white);
+
+  .header__toggle:checked ~ & {
+    display: flex;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item + &__item {
+    border-top: 1px solid var(--color-border);
+  }
+
+  &__link {
+    @include heading-font(rem(13));
+
+    display: block;
+    padding-block: 12px;
+    color: var(--color-text-dark);
+
+    &:hover,
+    &--active {
+      color: var(--color-accent);
+    }
+
+    &:focus-visible {
+      @include focus-ring;
+    }
+  }
+
+  @include mq(md) {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+    padding: 0;
+
+    &__list {
+      flex-direction: row;
+      gap: 24px;
+    }
+
+    &__item + &__item {
+      border-top: 0;
+    }
+  }
+
+  @include mq(lg) {
+    gap: 40px;
+
+    &__list {
+      gap: 40px;
+    }
+  }
+}

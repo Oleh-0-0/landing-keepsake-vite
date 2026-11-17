@@ -1,7 +1,7 @@
 //- +picture('work-01', 'alt', { sizes, lazy, cls, w, h })
 mixin picture(name, alt, opts = {})
   - const { sizes = '100vw', lazy = true, cls = '', w = 800, h = 632 } = opts
-  - const base = `/src/assets/images/${name}`
+  - const base = `/assets/${name}`
   picture
     each fmt in ['avif', 'webp']
       source(type=`image/${fmt}`, srcset=`${base}-400.${fmt} 400w, ${base}-800.${fmt} 800w`, sizes=sizes)
